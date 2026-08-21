@@ -1,0 +1,25 @@
+{
+  "schema": "classroom50/classroom/v1",
+  "name": "COMP 1102 Programming I",
+  "short_name": "comp1102",
+  "term": "Semester-1-2026",
+  "org": "biust-comp1102",
+  "team": {
+    "id": 19093482,
+    "slug": "classroom50-comp1102"
+  },
+  "teams": {
+    "teacher": {
+      "id": 19093483,
+      "slug": "classroom50-comp1102-teacher"
+    },
+    "hta": {
+      "id": 19093484,
+      "slug": "classroom50-comp1102-hta"
+    },
+    "ta": {
+      "id": 19093485,
+      "slug": "classroom50-comp1102-ta"
+    }
+  }
+}
