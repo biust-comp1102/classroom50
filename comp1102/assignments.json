@@ -1,4 +1,95 @@
 {
   "schema": "classroom50/assignments/v1",
-  "assignments": []
+  "assignments": [
+    {
+      "slug": "bmi",
+      "name": "Lab 1 - BMI Calculator",
+      "description": "Week 2 - variables, types, expressions, f-strings",
+      "template": {
+        "owner": "biust-comp1102",
+        "repo": "lab1-bmi-template",
+        "branch": "main"
+      },
+      "due": "2026-08-28T21:59:00Z",
+      "due_meta": {
+        "input": "2026-08-28T23:59:00+02:00",
+        "offset": "+02:00",
+        "source": "explicit-offset"
+      },
+      "mode": "individual",
+      "autograder": "default",
+      "runtime": {
+        "runs-on": "ubuntu-latest",
+        "python": "3.11"
+      },
+      "tests": [
+        {
+          "name": "runs without crashing",
+          "type": "run",
+          "run": "printf '70\\n1.75\\n' | python bmi.py",
+          "timeout": 15,
+          "points": 1
+        },
+        {
+          "name": "BMI correct for 70 kg, 1.75 m (expects 22.9)",
+          "type": "io",
+          "run": "python bmi.py",
+          "input": "70\n1.75\n",
+          "expected": "Your BMI is\\s+22\\.9",
+          "comparison": "regex",
+          "timeout": 15,
+          "points": 3
+        },
+        {
+          "name": "BMI correct for 50 kg, 1.60 m (expects 19.5)",
+          "type": "io",
+          "run": "python bmi.py",
+          "input": "50\n1.60\n",
+          "expected": "Your BMI is\\s+19\\.5",
+          "comparison": "regex",
+          "timeout": 15,
+          "points": 3
+        },
+        {
+          "name": "BMI correct for a decimal weight, 95.5 kg, 1.82 m (expects 28.8)",
+          "type": "io",
+          "run": "python bmi.py",
+          "input": "95.5\n1.82\n",
+          "expected": "Your BMI is\\s+28\\.8",
+          "comparison": "regex",
+          "timeout": 15,
+          "points": 3
+        },
+        {
+          "name": "output rounded to exactly one decimal place",
+          "type": "io",
+          "run": "python bmi.py",
+          "input": "45\n1.5\n",
+          "expected": "Your BMI is\\s+20\\.0(?!\\d)",
+          "comparison": "regex",
+          "timeout": 15,
+          "points": 2
+        },
+        {
+          "name": "EXTENSION - healthy weight range for 1.75 m (56.7 to 76.3)",
+          "type": "io",
+          "run": "python bmi.py",
+          "input": "70\n1.75\n",
+          "expected": "56\\.7[\\s\\S]*76\\.3",
+          "comparison": "regex",
+          "timeout": 15,
+          "points": 3
+        },
+        {
+          "name": "STYLE - passes flake8 (PEP 8)",
+          "type": "run",
+          "setup": "python -m pip install --quiet flake8",
+          "run": "python -m flake8 --max-line-length=99 bmi.py",
+          "timeout": 60,
+          "points": 2
+        }
+      ],
+      "feedback_pr": true
+    }
+  ]
 }
