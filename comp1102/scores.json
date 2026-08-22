@@ -1,4 +1,10 @@
 {
   "schema": "classroom50/scores/v1",
-  "assignments": {}
+  "assignments": {
+    "bmi": {
+      "type": "individual",
+      "entries": [],
+      "collected_at": "2026-08-22T04:48:07Z"
+    }
+  }
 }
